@@ -32,6 +32,34 @@ function App() {
   const handlerA = (e) => onChange(formA, setFormA, e);
   const handlerB = (e) => onChange(formB, setFormB, e);
 
+  function renderForm(form, handler) {
+    return (
+      <table>
+        <tbody>
+        <tr><td><label htmlFor="damage">Damage</label></td><td><input onChange={handler} name="damage" type="number" value={form.damage} min="0" autoFocus/></td></tr>
+        <tr><td><label htmlFor="accuracy">Accuracy</label></td><td><input onChange={handler} name="accuracy" type="number" value={form.accuracy} min="0" max="100"/></td></tr>
+        {/*<tr><td><label htmlFor="handling">Handling</label></td><td><input onChange={handler} name="handling" type="number" value="" min="0" max="100"/></td></tr>*/}
+        <tr><td><label htmlFor="reloadTime">Reload Time</label></td><td><input onChange={handler} name="reloadTime" type="number" value={form.reloadTime} min="0" step="0.1"/></td></tr>
+        <tr><td><label htmlFor="fireRate">Fire Rate</label></td><td><input onChange={handler} name="fireRate" type="number" value={form.fireRate} min="0" step="0.01"/></td></tr>
+        <tr><td><label htmlFor="magazineSize">Magazine Size</label></td><td><input onChange={handler} name="magazineSize" type="number" value={form.magazineSize} min="0"/></td></tr>
+        </tbody>
+      </table>
+    );
+  }
+
+  function renderStats(form, gun) {
+    return (
+      <table>
+        <tbody>
+        <tr><td>Base DPS:</td><td>{Math.round(gun.dps)}</td></tr>
+        <tr><td>Mag empty time:</td><td>{gun.magTime.toFixed(2)}</td></tr>
+        <tr><td>Mag-2-Mag time:</td><td>{(gun.magTime + form.reloadTime).toFixed(2)}</td></tr>
+        <tr><td>Mag-2-Mag DPS:</td><td>{Math.round(gun.mag2magDps)}</td></tr>
+        </tbody>
+      </table>
+    );
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -40,51 +68,19 @@ function App() {
       <main>
         <div className="cell flex flexColumn">
           <span>Gun A</span>
-          <table>
-            <tbody>
-            <tr><td><label htmlFor="damage">Damage</label></td><td><input onChange={handlerA} name="damage" type="number" value={formA.damage} min="0" autoFocus/></td></tr>
-            <tr><td><label htmlFor="accuracy">Accuracy</label></td><td><input onChange={handlerA} name="accuracy" type="number" value={formA.accuracy} min="0" max="100"/></td></tr>
-            <tr><td><label htmlFor="handling">Handling</label></td><td><input onChange={handlerA} name="handling" type="number" value="" min="0" max="100"/></td></tr>
-            <tr><td><label htmlFor="reloadTime">Reload Time</label></td><td><input onChange={handlerA} name="reloadTime" type="number" value={formA.reloadTime} min="0" step="0.1"/></td></tr>
-            <tr><td><label htmlFor="fireRate">Fire Rate</label></td><td><input onChange={handlerA} name="fireRate" type="number" value={formA.fireRate} min="0" step="0.01"/></td></tr>
-            <tr><td><label htmlFor="magazineSize">Magazine Size</label></td><td><input onChange={handlerA} name="magazineSize" type="number" value={formA.magazineSize} min="0"/></td></tr>
-            </tbody>
-          </table>
+          {renderForm(formA, handlerA)}
         </div>
         <div>
           <span>Gun B</span>
-          <table>
-            <tbody>
-            <tr><td><label htmlFor="damage">Damage</label></td><td><input onChange={handlerB} name="damage" type="number" value={formB.damage} min="0" autoFocus/></td></tr>
-            <tr><td><label htmlFor="accuracy">Accuracy</label></td><td><input onChange={handlerB} name="accuracy" type="number" value={formB.accuracy} min="0" max="100"/></td></tr>
-            <tr><td><label htmlFor="handling">Handling</label></td><td><input onChange={handlerB} name="handling" type="number" value="" min="0" max="100"/></td></tr>
-            <tr><td><label htmlFor="reloadTime">Reload Time</label></td><td><input onChange={handlerB} name="reloadTime" type="number" value={formB.reloadTime}  min="0" step="0.1"/></td></tr>
-            <tr><td><label htmlFor="fireRate">Fire Rate</label></td><td><input onChange={handlerB} name="fireRate" type="number" value={formB.fireRate} min="0" step="0.01"/></td></tr>
-            <tr><td><label htmlFor="magazineSize">Magazine Size</label></td><td><input onChange={handlerB} name="magazineSize" type="number" value={formB.magazineSize} min="0"/></td></tr>
-            </tbody>
-          </table>
+          {renderForm(formB, handlerB)}
         </div>
         <div>
           <h2>Stats</h2>
-          <table>
-            <tbody>
-            <tr><td>Base DPS:</td><td>{Math.round(gunA.dps)}</td></tr>
-            <tr><td>Mag empty time:</td><td>{gunA.magTime.toFixed(2)}</td></tr>
-            <tr><td>Mag-2-Mag time:</td><td>{(gunA.magTime + formA.reloadTime).toFixed(2)}</td></tr>
-            <tr><td>Mag-2-Mag DPS:</td><td>{Math.round(gunA.mag2magDps)}</td></tr>
-            </tbody>
-          </table>
+          {renderStats(formA, gunA)}
         </div>
         <div>
           <h2>Stats</h2>
-          <table>
-            <tbody>
-            <tr><td>Base DPS:</td><td>{Math.round(gunB.dps)}</td></tr>
-            <tr><td>Mag empty time:</td><td>{gunB.magTime.toFixed(2)}</td></tr>
-            <tr><td>Mag-2-Mag time:</td><td>{(gunB.magTime + formB.reloadTime).toFixed(2)}</td></tr>
-            <tr><td>Mag-2-Mag DPS:</td><td>{Math.round(gunB.mag2magDps)}</td></tr>
-            </tbody>
-          </table>
+          {renderStats(formB, gunB)}
         </div>
       </main>
     </div>
