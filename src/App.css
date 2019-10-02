@@ -12,7 +12,17 @@
 }
 
 main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: minmax(100px, auto);
+  grid-gap: 5px;
+}
+
+.flex {
   display: flex;
+}
+
+.flexColumn {
   flex-flow: column;
 }
 
@@ -20,14 +30,12 @@ div input {
   height: 2em;
 }
 
-div label {
-  display: flex;
-  align-items: center;
+label {
   padding: 1px;
   height: 2em;
 }
 
-div.form {
+div.row {
   display: flex;
   flex-flow: row;
 }
