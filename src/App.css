@@ -13,6 +13,7 @@
 
 main {
   display: flex;
+  flex-flow: column;
 }
 
 div input {
@@ -24,6 +25,11 @@ div label {
   align-items: center;
   padding: 1px;
   height: 2em;
+}
+
+div.form {
+  display: flex;
+  flex-flow: row;
 }
 
 div.formCol {

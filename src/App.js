@@ -28,21 +28,23 @@ function App() {
         <h2>Borderlands 3 DPS Calc</h2>
       </header>
       <main>
-        <div className="formCol">
-          <label htmlFor="damage">Damage</label>
-          <label htmlFor="accuracy">Accuracy</label>
-          <label htmlFor="handling">Handling</label>
-          <label htmlFor="reloadTime">Reload Time</label>
-          <label htmlFor="fireRate">Fire Rate</label>
-          <label htmlFor="magazineSize">Magazine Size</label>
-        </div>
-        <div className="formCol">
-          <input onChange={onChange} name="damage" type="number" value={form.damage} min="0" autoFocus/>
-          <input onChange={onChange} name="accuracy" type="number" value={form.accuracy} min="0" max="100"/>
-          <input onChange={onChange} name="handling" type="number" value="" min="0" max="100"/>
-          <input onChange={onChange} name="reloadTime" type="number" value={form.reloadTime} min="0" step="0.1"/>
-          <input onChange={onChange} name="fireRate" type="number" value={form.fireRate} min="0" step="0.01"/>
-          <input onChange={onChange} name="magazineSize" type="number" value={form.magazineSize} min="0"/>
+        <div className="form">
+          <div className="formCol">
+            <label htmlFor="damage">Damage</label>
+            <label htmlFor="accuracy">Accuracy</label>
+            <label htmlFor="handling">Handling</label>
+            <label htmlFor="reloadTime">Reload Time</label>
+            <label htmlFor="fireRate">Fire Rate</label>
+            <label htmlFor="magazineSize">Magazine Size</label>
+          </div>
+          <div className="formCol">
+            <input onChange={onChange} name="damage" type="number" value={form.damage} min="0" autoFocus/>
+            <input onChange={onChange} name="accuracy" type="number" value={form.accuracy} min="0" max="100"/>
+            <input onChange={onChange} name="handling" type="number" value="" min="0" max="100"/>
+            <input onChange={onChange} name="reloadTime" type="number" value={form.reloadTime} min="0" step="0.1"/>
+            <input onChange={onChange} name="fireRate" type="number" value={form.fireRate} min="0" step="0.01"/>
+            <input onChange={onChange} name="magazineSize" type="number" value={form.magazineSize} min="0"/>
+          </div>
         </div>
         <div>
           <h2>Stats</h2>
