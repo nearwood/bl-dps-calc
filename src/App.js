@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Borderlands 3 DPS Calc</p>
+        <h2>Borderlands 3 DPS Calc</h2>
       </header>
       <main>
         <div className="formCol">

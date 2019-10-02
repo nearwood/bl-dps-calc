@@ -9,7 +9,6 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 main {
@@ -33,5 +32,5 @@ div.formCol {
 }
 
 .App-link {
-  color: #09d3ac;
+  color: #2242d2;
 }
