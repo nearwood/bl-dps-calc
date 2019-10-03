@@ -10,10 +10,6 @@ function App() {
   function onChange(form, setForm, e) {
     const v = e.target.value;
     
-    // if (!Number.isFinite(Number.parseFloat(v))) {
-    //   return;
-    // }
-    
     switch (e.target.name) {
       case "damage": return setForm({...form, damage: Number.parseInt(v)});
       case "accuracy": return setForm({...form, accuracy: Number.parseInt(v)});
@@ -61,8 +57,6 @@ function App() {
     const magTime = gun.magTime.toFixed(2).toString();
     const m2mTime = (gun.magTime + form.reloadTime).toFixed(2).toString();
     const m2mDps = Math.round(gun.mag2magDps).toString();
-
-    console.log();
 
     return (
       <table>
