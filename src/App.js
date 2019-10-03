@@ -6,7 +6,11 @@ function App() {
   const [formB, setFormB] = useState({damage: 20, accuracy: 80, reloadTime: 3.2, fireRate: 12.71, magazineSize: 44});
 
   function onChange(form, setForm, e) {
-    const v = Number.isFinite(Number.parseFloat(e.target.value)) ? e.target.value : 0;
+    const v = e.target.value;
+    
+    // if (!Number.isFinite(Number.parseFloat(v))) {
+    //   return;
+    // }
     
     switch (e.target.name) {
       case "damage": return setForm({...form, damage: Number.parseInt(v)});
@@ -33,31 +37,36 @@ function App() {
   const handlerB = (e) => onChange(formB, setFormB, e);
 
   const getSign = (a, b) => a < b ? '+' : '';
-  const percentDelta = (a, b) => <td style={a > b ? {color: 'red'} : {}}>{getSign(a, b)}{Math.round((b - a) / a * 100)}%</td>;
+  const percentDelta = (a, b) => <td style={a > b ? {color: 'red'} : {}}>{getSign(a, b)}{Math.round((b - a) / a * 100).toString()}%</td>;
 
   function renderForm(form, handler) {
     return (
       <table>
         <tbody>
-        <tr><td><label htmlFor="damage">Damage</label></td><td><input onChange={handler} name="damage" type="number" value={form.damage} min="0" autoFocus/></td></tr>
-        <tr><td><label htmlFor="accuracy">Accuracy</label></td><td><input disabled onChange={handler} name="accuracy" type="number" value={form.accuracy} min="0" max="100"/></td></tr>
+        <tr><td><label htmlFor="damage">Damage</label></td><td><input onChange={handler} name="damage" type="number" value={form.damage.toString()} min="0" autoFocus/></td></tr>
+        {/*<tr><td><label htmlFor="accuracy">Accuracy</label></td><td><input disabled onChange={handler} name="accuracy" type="number" value={form.accuracy.toString()} min="0" max="100"/></td></tr>*/}
         {/*<tr><td><label htmlFor="handling">Handling</label></td><td><input onChange={handler} name="handling" type="number" value="" min="0" max="100"/></td></tr>*/}
-        <tr><td><label htmlFor="reloadTime">Reload Time</label></td><td><input onChange={handler} name="reloadTime" type="number" value={form.reloadTime} min="0" step="0.1"/></td></tr>
-        <tr><td><label htmlFor="fireRate">Fire Rate</label></td><td><input onChange={handler} name="fireRate" type="number" value={form.fireRate} min="0" step="0.01"/></td></tr>
-        <tr><td><label htmlFor="magazineSize">Magazine Size</label></td><td><input onChange={handler} name="magazineSize" type="number" value={form.magazineSize} min="0"/></td></tr>
+        <tr><td><label htmlFor="reloadTime">Reload Time</label></td><td><input onChange={handler} name="reloadTime" type="number" value={form.reloadTime.toString()} min="0" step="0.1"/></td></tr>
+        <tr><td><label htmlFor="fireRate">Fire Rate</label></td><td><input onChange={handler} name="fireRate" type="number" value={form.fireRate.toString()} min="0" step="0.01"/></td></tr>
+        <tr><td><label htmlFor="magazineSize">Magazine Size</label></td><td><input onChange={handler} name="magazineSize" type="number" value={form.magazineSize.toString()} min="0"/></td></tr>
         </tbody>
       </table>
     );
   }
 
   function renderStats(form, gun, formA, gunA) {
+    const dps = Math.round(gun.dps).toString();
+    const magTime = gun.magTime.toFixed(2).toString();
+    const m2mTime = (gun.magTime + form.reloadTime).toFixed(2).toString();
+    const m2mDps = Math.round(gun.mag2magDps).toString();
+
     return (
       <table>
         <tbody>
-        <tr><td>Base DPS:</td><td>{Math.round(gun.dps)}</td>{gunA && percentDelta(gunA.dps, gun.dps)}</tr>
-        <tr><td>Mag empty time:</td><td>{gun.magTime.toFixed(2)}</td>{gunA && percentDelta(gunA.magTime, gun.magTime)}</tr>
-        <tr><td>Mag-2-Mag time:</td><td>{(gun.magTime + form.reloadTime).toFixed(2)}</td>{gunA && percentDelta(gunA.magTime + formA.reloadTime, gun.magTime + form.reloadTime)}</tr>
-        <tr><td>Mag-2-Mag DPS:</td><td>{Math.round(gun.mag2magDps)}</td>{gunA && percentDelta(gunA.mag2magDps, gun.mag2magDps)}</tr>
+        <tr><td>Base DPS:</td><td>{dps}</td>{gunA && percentDelta(gunA.dps, gun.dps)}</tr>
+        <tr><td>Mag empty time:</td><td>{magTime}</td>{gunA && percentDelta(gunA.magTime, gun.magTime)}</tr>
+        <tr><td>Mag-2-Mag time:</td><td>{m2mTime}</td>{gunA && percentDelta(gunA.magTime + formA.reloadTime, gun.magTime + form.reloadTime)}</tr>
+        <tr><td>Mag-2-Mag DPS:</td><td>{m2mDps}</td>{gunA && percentDelta(gunA.mag2magDps, gun.mag2magDps)}</tr>
         </tbody>
       </table>
     );
