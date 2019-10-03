@@ -2,12 +2,18 @@
   "name": "bl-dps-calc",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://nearwood.github.io/bl-dps-calc",
   "dependencies": {
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-scripts": "3.1.2"
   },
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
+  },
   "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
