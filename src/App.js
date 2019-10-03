@@ -100,7 +100,7 @@ function App() {
         </div>
       </main>
       <footer>
-        <h6>version {VERSION.substring(0, 7)}</h6>
+        <h6><a rel="author" href="https://twitter.com/nearwood">@nearwood</a> <a href="https://github.com/nearwood/bl-dps-calc">GitHub</a> <span title="version">{VERSION.substring(0, 7)}</span></h6>
       </footer>
     </div>
   );
