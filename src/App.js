@@ -79,7 +79,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>Borderlands 3 DPS Calc</h2>
+        <h2>Borderlands DPS Calc</h2>
       </header>
       <main>
         <div className="cell flex flexColumn">
