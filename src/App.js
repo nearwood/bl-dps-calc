@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 
+const VERSION = process.env.REACT_APP_GIT_COMMIT_HASH || 'dev';
+
 function App() {
   const [formA, setFormA] = useState({damage: 17, accuracy: 60, reloadTime: 4.0, fireRate: 13.67, magazineSize: 60});
   const [formB, setFormB] = useState({damage: 20, accuracy: 80, reloadTime: 3.2, fireRate: 12.71, magazineSize: 44});
@@ -60,6 +62,8 @@ function App() {
     const m2mTime = (gun.magTime + form.reloadTime).toFixed(2).toString();
     const m2mDps = Math.round(gun.mag2magDps).toString();
 
+    console.log();
+
     return (
       <table>
         <tbody>
@@ -95,6 +99,9 @@ function App() {
           {renderStats(formB, gunB, formA, gunA)}
         </div>
       </main>
+      <footer>
+        <h6>version {VERSION.substring(0, 7)}</h6>
+      </footer>
     </div>
   );
 }

@@ -48,3 +48,10 @@ div.formCol {
 .App-link {
   color: #2242d2;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+}
