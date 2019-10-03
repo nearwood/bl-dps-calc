@@ -1,6 +1,6 @@
 {
-  "name": "bl3",
-  "version": "0.1.0",
+  "name": "bl-dps-calc",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "react": "^16.10.1",
