@@ -10,6 +10,7 @@ Latest available here: https://nearwood.github.io/bl-dps-calc/
 
 * More stats
   * Reload, Firerate, magazine size % diff
+* Make mobile use less painful
 * Tab view to hide base gun form
 * Store guns by name in localStorage
 
