@@ -62,6 +62,8 @@ function App() {
         <tbody>
         <tr><td>Mag-2-Mag DPS:</td><td>{m2mDps}</td>{gunA && percentDelta(gunA.mag2magDps, gun.mag2magDps)}</tr>
         <tr><td>Base DPS:</td><td>{dps}</td>{gunA && percentDelta(gunA.dps, gun.dps)}</tr>
+        {gunA && <tr><td>Fire Rate:</td><td>{(form.fireRate - formA.fireRate).toFixed(2)}</td>{percentDelta(formA.fireRate, form.fireRate)}</tr>}
+        {gunA && <tr><td>Reload time:</td><td>{(form.reloadTime - formA.reloadTime).toFixed(2)}</td>{percentDelta(formA.reloadTime, form.reloadTime)}</tr>}
         </tbody>
       </table>
     );
