@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4641a9c68f5cbffb8e8443aa28df2f50",
+    "revision": "c5e6bca718d4ef49a5166922b1c4b07f",
     "url": "/bl-dps-calc/index.html"
   },
   {
-    "revision": "948dfb749923da35a74b",
+    "revision": "e3806611eb36d23bfe97",
     "url": "/bl-dps-calc/static/css/main.6ec735d4.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/bl-dps-calc/static/js/2.63e792a1.chunk.js"
   },
   {
-    "revision": "948dfb749923da35a74b",
-    "url": "/bl-dps-calc/static/js/main.56546221.chunk.js"
+    "revision": "e3806611eb36d23bfe97",
+    "url": "/bl-dps-calc/static/js/main.e0471252.chunk.js"
   },
   {
     "revision": "2116b549427af653b912",
