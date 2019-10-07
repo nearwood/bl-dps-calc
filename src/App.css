@@ -11,13 +11,6 @@
   font-size: calc(10px + 2vmin);
 }
 
-main {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: minmax(100px, auto);
-  grid-gap: 5px;
-}
-
 table {
   width: 100%;
 }
@@ -31,6 +24,7 @@ table {
 }
 
 div input {
+  width: 8em;
   height: 2em;
 }
 

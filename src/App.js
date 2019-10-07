@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import "react-tabs/style/react-tabs.css";
 
 const VERSION = process.env.REACT_APP_GIT_COMMIT_HASH || 'dev';
 
@@ -76,22 +78,32 @@ function App() {
         <h2>Borderlands DPS Calc</h2>
       </header>
       <main>
-        <div className="cell flex flexColumn">
-          <span>Gun A</span>
-          {renderForm(formA, handlerA)}
-        </div>
-        <div className="cell flex flexColumn">
-          <span>Gun B</span>
-          {renderForm(formB, handlerB)}
-        </div>
-        <div className="cell flex flexColumn">
-          <h2>Stats</h2>
-          {renderStats(formA, gunA)}
-        </div>
-        <div className="cell flex flexColumn">
-          <h2>Stats</h2>
-          {renderStats(formB, gunB, formA, gunA)}
-        </div>
+        <Tabs>
+          <TabList>
+            <Tab>Gun A</Tab>
+            <Tab>Gun B</Tab>
+          </TabList>
+          <TabPanel>
+            <div className="flex flexColumn">
+              <span>Gun A</span>
+              {renderForm(formA, handlerA)}
+            </div>
+            <div className="flex flexColumn">
+              <h2>Stats</h2>
+              {renderStats(formA, gunA)}
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className="flex flexColumn">
+              <span>Gun B</span>
+              {renderForm(formB, handlerB)}
+            </div>
+            <div className="flex flexColumn">
+              <h2>Stats</h2>
+              {renderStats(formB, gunB, formA, gunA)}
+            </div>
+          </TabPanel>
+        </Tabs>
       </main>
       <footer>
         <h6><a rel="author" href="https://twitter.com/nearwood">@nearwood</a> <a href="https://github.com/nearwood/bl-dps-calc">GitHub</a> <span title="version">{VERSION.substring(0, 7)}</span></h6>
