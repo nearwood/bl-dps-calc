@@ -33,6 +33,7 @@ function App() {
 
   const handlerA = (e) => onChange(formA, setFormA, e);
   const handlerB = (e) => onChange(formB, setFormB, e);
+  const selectAll = (e) => e.target.select();
 
   const getSign = (a, b) => a < b ? '+' : '';
   const percentDelta = (a, b) => <td style={a > b ? {color: 'red'} : {}}>{getSign(a, b)}{Math.round((b - a) / a * 100).toString()}%</td>;
@@ -41,12 +42,12 @@ function App() {
     return (
       <table>
         <tbody>
-        <tr><td><label htmlFor="damage">Damage</label></td><td><input onChange={handler} name="damage" type="number" value={form.damage.toString()} min="0" autoFocus/></td></tr>
+        <tr><td><label htmlFor="damage">Damage</label></td><td><input onFocus={selectAll} onChange={handler} name="damage" type="number" value={form.damage.toString()} min="0"/></td></tr>
         {/*<tr><td><label htmlFor="accuracy">Accuracy</label></td><td><input disabled onChange={handler} name="accuracy" type="number" value={form.accuracy.toString()} min="0" max="100"/></td></tr>*/}
         {/*<tr><td><label htmlFor="handling">Handling</label></td><td><input onChange={handler} name="handling" type="number" value="" min="0" max="100"/></td></tr>*/}
-        <tr><td><label htmlFor="reloadTime">Reload Time</label></td><td><input onChange={handler} name="reloadTime" type="number" value={form.reloadTime.toString()} min="0" step="0.1"/></td></tr>
-        <tr><td><label htmlFor="fireRate">Fire Rate</label></td><td><input onChange={handler} name="fireRate" type="number" value={form.fireRate.toString()} min="0" step="0.01"/></td></tr>
-        <tr><td><label htmlFor="magazineSize">Magazine Size</label></td><td><input onChange={handler} name="magazineSize" type="number" value={form.magazineSize.toString()} min="0"/></td></tr>
+        <tr><td><label htmlFor="reloadTime">Reload Time</label></td><td><input onFocus={selectAll} onChange={handler} name="reloadTime" type="number" value={form.reloadTime.toString()} min="0" step="0.1"/></td></tr>
+        <tr><td><label htmlFor="fireRate">Fire Rate</label></td><td><input onFocus={selectAll} onChange={handler} name="fireRate" type="number" value={form.fireRate.toString()} min="0" step="0.01"/></td></tr>
+        <tr><td><label htmlFor="magazineSize">Magazine Size</label></td><td><input onFocus={selectAll} onChange={handler} name="magazineSize" type="number" value={form.magazineSize.toString()} min="0"/></td></tr>
         </tbody>
       </table>
     );
