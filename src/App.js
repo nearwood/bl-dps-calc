@@ -36,7 +36,7 @@ function App() {
   const selectAll = (e) => e.target.select();
 
   const getSign = (a, b) => a < b ? '+' : '';
-  const percentDelta = (a, b) => <td style={a > b ? {color: 'red'} : {}}>{getSign(a, b)}{Math.round((b - a) / a * 100).toString()}%</td>;
+  const percentDelta = (a, b, invert) => <td style={a > b ? (invert ? {color: '#00C800'} : {color: 'red'}) : {}}>{getSign(a, b)}{Math.round((b - a) / a * 100).toString()}%</td>;
 
   function renderForm(form, handler) {
     return (
@@ -63,7 +63,8 @@ function App() {
         <tr><td>Mag-2-Mag DPS:</td><td>{m2mDps}</td>{gunA && percentDelta(gunA.mag2magDps, gun.mag2magDps)}</tr>
         <tr><td>Base DPS:</td><td>{dps}</td>{gunA && percentDelta(gunA.dps, gun.dps)}</tr>
         {gunA && <tr><td>Fire Rate:</td><td>{(form.fireRate - formA.fireRate).toFixed(2)}</td>{percentDelta(formA.fireRate, form.fireRate)}</tr>}
-        {gunA && <tr><td>Reload time:</td><td>{(form.reloadTime - formA.reloadTime).toFixed(2)}</td>{percentDelta(formA.reloadTime, form.reloadTime)}</tr>}
+        {gunA && <tr><td>Reload time:</td><td>{(form.reloadTime - formA.reloadTime).toFixed(2)}</td>{percentDelta(formA.reloadTime, form.reloadTime, true)}</tr>}
+        {gunA && <tr><td>Magazine Size:</td><td>{(form.magazineSize - formA.magazineSize).toFixed(2)}</td>{percentDelta(formA.magazineSize, form.magazineSize)}</tr>}
         </tbody>
       </table>
     );
