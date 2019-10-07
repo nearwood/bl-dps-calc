@@ -54,17 +54,13 @@ function App() {
 
   function renderStats(form, gun, formA, gunA) {
     const dps = Math.round(gun.dps).toString();
-    const magTime = gun.magTime.toFixed(2).toString();
-    const m2mTime = (gun.magTime + form.reloadTime).toFixed(2).toString();
     const m2mDps = Math.round(gun.mag2magDps).toString();
 
     return (
       <table>
         <tbody>
-        <tr><td>Base DPS:</td><td>{dps}</td>{gunA && percentDelta(gunA.dps, gun.dps)}</tr>
-        <tr><td>Mag empty time:</td><td>{magTime}</td>{gunA && percentDelta(gunA.magTime, gun.magTime)}</tr>
-        <tr><td>Mag-2-Mag time:</td><td>{m2mTime}</td>{gunA && percentDelta(gunA.magTime + formA.reloadTime, gun.magTime + form.reloadTime)}</tr>
         <tr><td>Mag-2-Mag DPS:</td><td>{m2mDps}</td>{gunA && percentDelta(gunA.mag2magDps, gun.mag2magDps)}</tr>
+        <tr><td>Base DPS:</td><td>{dps}</td>{gunA && percentDelta(gunA.dps, gun.dps)}</tr>
         </tbody>
       </table>
     );
