@@ -80,7 +80,7 @@ function App() {
           <span>Gun A</span>
           {renderForm(formA, handlerA)}
         </div>
-        <div>
+        <div className="cell flex flexColumn">
           <span>Gun B</span>
           {renderForm(formB, handlerB)}
         </div>

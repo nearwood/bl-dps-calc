@@ -45,8 +45,12 @@ div.formCol {
   flex-flow: column;
 }
 
-td {
+td:first-child {
   text-align: right;
+}
+
+td:last-child {
+  text-align: left;
 }
 
 .App-link {
