@@ -18,6 +18,10 @@ main {
   grid-gap: 5px;
 }
 
+table {
+  width: 100%;
+}
+
 .flex {
   display: flex;
 }
@@ -47,10 +51,12 @@ div.formCol {
 
 td:first-child {
   text-align: right;
+  width: 50%;
 }
 
 td:last-child {
   text-align: left;
+  width: 50%;
 }
 
 .App-link {

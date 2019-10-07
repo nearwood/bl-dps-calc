@@ -84,11 +84,11 @@ function App() {
           <span>Gun B</span>
           {renderForm(formB, handlerB)}
         </div>
-        <div>
+        <div className="cell flex flexColumn">
           <h2>Stats</h2>
           {renderStats(formA, gunA)}
         </div>
-        <div>
+        <div className="cell flex flexColumn">
           <h2>Stats</h2>
           {renderStats(formB, gunB, formA, gunA)}
         </div>
