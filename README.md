@@ -4,7 +4,7 @@ Calculate effective DPS with reload times.
 
 Enter the "base" gun to compare others against on the left. Enter prospective guns on the right, and view the percent difference in base DPS, and magazine-to-magazine DPS.
 
-Latest available here: https://nearwood.github.io/bl-dps-calc/
+Latest available here: https://nearwood.dev/bl-dps-calc/
 
 ## Planned features
 
