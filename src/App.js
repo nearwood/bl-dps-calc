@@ -6,28 +6,41 @@ import "react-tabs/style/react-tabs.css";
 const VERSION = process.env.REACT_APP_GIT_COMMIT_HASH || 'dev';
 
 function App() {
-  const [formA, setFormA] = useState({damage: 17, accuracy: 60, reloadTime: 4.0, fireRate: 13.67, magazineSize: 60});
-  const [formB, setFormB] = useState({damage: 20, accuracy: 80, reloadTime: 3.2, fireRate: 12.71, magazineSize: 44});
+  const [formA, setFormA] = useState({damage: "17", accuracy: "60", reloadTime: "4.0", fireRate: "13.67", magazineSize: "60"});
+  const [formB, setFormB] = useState({damage: "20", accuracy: "80", reloadTime: "3.2", fireRate: "12.71", magazineSize: "44"});
 
   function onChange(form, setForm, e) {
     const v = e.target.value;
     
     switch (e.target.name) {
-      case "damage": return setForm({...form, damage: Number.parseInt(v)});
-      case "accuracy": return setForm({...form, accuracy: Number.parseInt(v)});
-      case "reloadTime": return setForm({...form, reloadTime: Number.parseFloat(v)});
-      case "fireRate": return setForm({...form, fireRate: Number.parseFloat(v)});
-      case "magazineSize": return setForm({...form, magazineSize: Number.parseInt(v)});
+      case "damage": return setForm({...form, damage: v});
+      case "accuracy": return setForm({...form, accuracy: v});
+      case "reloadTime": return setForm({...form, reloadTime: v});
+      case "fireRate": return setForm({...form, fireRate: v});
+      case "magazineSize": return setForm({...form, magazineSize: v});
       default: return;
     }
   }
 
-  function calc(form) {
-    const dps = form.damage * form.fireRate;
-    const magTime = form.magazineSize / form.fireRate
-    const mag2magDps = (dps * magTime) / (magTime + form.reloadTime);
+  // Loop through an object and convert all user-defined props to float or integer.
+  // Note: Disregards `,` as the decimal separator for other locales.
+  const parseAllNumbers = (form) => {
+    let data = {};
+  
+    Object.keys(form).forEach(key => 
+      data[key] = form[key].includes('.') ? Number.parseFloat(form[key]) : Number.parseInt(form[key], 10)
+    );
+    return data;
+  };
 
-    return {dps, magTime, mag2magDps};
+  function calc(form) {
+    const data = parseAllNumbers(form);
+
+    const dps = data.damage * data.fireRate;
+    const magTime = data.magazineSize / data.fireRate
+    const mag2magDps = (dps * magTime) / (magTime + data.reloadTime);
+
+    return {...data, dps, magTime, mag2magDps};
   }
 
   const gunA = calc(formA);
@@ -57,7 +70,7 @@ function App() {
     );
   }
 
-  function renderStats(form, gun, formA, gunA) {
+  function renderStats(gun, gunA) {
     const dps = Math.round(gun.dps).toString();
     const m2mDps = Math.round(gun.mag2magDps).toString();
 
@@ -66,9 +79,9 @@ function App() {
         <tbody>
         <tr><td>Mag-2-Mag DPS:</td><td>{m2mDps}</td>{gunA && percentDelta(gunA.mag2magDps, gun.mag2magDps)}</tr>
         <tr><td>Base DPS:</td><td>{dps}</td>{gunA && percentDelta(gunA.dps, gun.dps)}</tr>
-        {gunA && <tr><td>Fire Rate:</td><td>{(form.fireRate - formA.fireRate).toFixed(2)}</td>{percentDelta(formA.fireRate, form.fireRate)}</tr>}
-        {gunA && <tr><td>Reload time:</td><td>{(form.reloadTime - formA.reloadTime).toFixed(2)}</td>{percentDelta(formA.reloadTime, form.reloadTime, true)}</tr>}
-        {gunA && <tr><td>Magazine Size:</td><td>{(form.magazineSize - formA.magazineSize).toFixed(2)}</td>{percentDelta(formA.magazineSize, form.magazineSize)}</tr>}
+        {gunA && <tr><td>Fire Rate:</td><td>{(gun.fireRate - gunA.fireRate).toFixed(2)}</td>{percentDelta(gunA.fireRate, gun.fireRate)}</tr>}
+        {gunA && <tr><td>Reload time:</td><td>{(gun.reloadTime - gunA.reloadTime).toFixed(2)}</td>{percentDelta(gunA.reloadTime, gun.reloadTime, true)}</tr>}
+        {gunA && <tr><td>Magazine Size:</td><td>{(gun.magazineSize - gunA.magazineSize).toFixed(2)}</td>{percentDelta(gunA.magazineSize, gun.magazineSize)}</tr>}
         </tbody>
       </table>
     );
@@ -92,7 +105,7 @@ function App() {
             </div>
             <div className="flex flexColumn">
               <h2>Stats</h2>
-              {renderStats(formA, gunA)}
+              {renderStats(gunA)}
             </div>
           </TabPanel>
           <TabPanel>
@@ -102,7 +115,7 @@ function App() {
             </div>
             <div className="flex flexColumn">
               <h2>Stats</h2>
-              {renderStats(formB, gunB, formA, gunA)}
+              {renderStats(gunB, gunA)}
             </div>
           </TabPanel>
         </Tabs>
