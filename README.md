@@ -47,6 +47,8 @@ Your app is ready to be deployed!
 
 #### `yarn deploy`
 
+Builds the project and pushes the build directory to the gh-pages branch, which is publically served by GitHub.
+
 ## Credits
 
 "Target" icon by [@steveschoger](https://twitter.com/steveschoger), [Zondicons](http://www.zondicons.com/).
