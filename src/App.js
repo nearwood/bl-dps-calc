@@ -101,7 +101,7 @@ function App() {
     return (
       <table>
         <tbody>
-          <tr><th>Effective DPS:</th><th>{m2mDps}</th>{gunA && percentDelta(gunA.mag2magDps, gun.mag2magDps)}</tr>
+          <tr className="statHeader"><td>Effective DPS:</td><td>{m2mDps}</td>{gunA && percentDelta(gunA.mag2magDps, gun.mag2magDps)}</tr>
           <tr><td>Base DPS:</td><td>{dps}</td>{gunA && percentDelta(gunA.dps, gun.dps)}</tr>
           {gunA && <tr><td>Fire Rate:</td><td>{(gun.fireRate - gunA.fireRate).toFixed(2)}</td>{percentDelta(gunA.fireRate, gun.fireRate)}</tr>}
           {gunA && <tr><td>Reload time:</td><td>{(gun.reloadTime - gunA.reloadTime).toFixed(2)}</td>{percentDelta(gunA.reloadTime, gun.reloadTime, true)}</tr>}
