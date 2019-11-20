@@ -8,8 +8,8 @@ const VERSION = process.env.REACT_APP_GIT_COMMIT_HASH || 'dev';
 const rxNumberSeparator = /[0-9]+[.,][0-9]+/;
 
 function App() {
-  const [formA, setFormA] = useState({damage: "17", accuracy: "60", reloadTime: "4.0", fireRate: "13.67", magazineSize: "60"});
-  const [formB, setFormB] = useState({damage: "20", accuracy: "80", reloadTime: "3.2", fireRate: "12.71", magazineSize: "44"});
+  const [formA, setFormA] = useState({damage: "17", damageMultiplier: "1", bulletsPerShot: "1", accuracy: "60", reloadTime: "4.0", fireRate: "13.67", magazineSize: "60"});
+  const [formB, setFormB] = useState({damage: "20", damageMultiplier: "1", bulletsPerShot: "1", accuracy: "80", reloadTime: "3.2", fireRate: "12.71", magazineSize: "44"});
 
   function onChange(form, setForm, e) {
     const v = e.target.value;
@@ -20,6 +20,8 @@ function App() {
       case "reloadTime": return setForm({...form, reloadTime: v});
       case "fireRate": return setForm({...form, fireRate: v});
       case "magazineSize": return setForm({...form, magazineSize: v});
+      case "damageMultiplier": return setForm({...form, damageMultiplier: v, bulletsPerShot: v});
+      case "bulletsPerShot": return setForm({...form, bulletsPerShot: v});
       default: return;
     }
   }
@@ -38,8 +40,10 @@ function App() {
   function calc(form) {
     const data = parseAllNumbers(form);
 
-    const dps = data.damage * data.fireRate;
-    const magTime = data.magazineSize / data.fireRate
+    const effectiveMagSize = Math.floor(data.magazineSize / data.bulletsPerShot);
+
+    const dps = data.damage * data.damageMultiplier * data.fireRate;
+    const magTime = effectiveMagSize / data.fireRate
     const mag2magDps = (dps * magTime) / (magTime + data.reloadTime);
 
     return {...data, dps, magTime, mag2magDps};
@@ -60,12 +64,30 @@ function App() {
       <form>
         <table>
           <tbody>
-            <tr><td><label htmlFor="damage">Damage</label></td><td><input onFocus={selectAll} onChange={handler} name="damage" type="number" value={form.damage.toString()} min="0"/></td></tr>
+            <tr><td><label htmlFor="damage">Damage</label></td>
+              <td><input onFocus={selectAll} onChange={handler} name="damage" type="number" value={form.damage.toString()} min="0"/>
+              <select onChange={handler} name="damageMultiplier" id="damageMultiplier" title="Damage Multiplier" value={form.damageMultiplier}>
+                <option value="1">x1</option>
+                <option value="2">x2</option>
+                <option value="3">x3</option>
+                <option value="4">x4</option>
+              </select>
+              <label for="damageMultiplier"></label>
+            </td></tr>
             {/*<tr><td><label htmlFor="accuracy">Accuracy</label></td><td><input disabled onChange={handler} name="accuracy" type="number" value={form.accuracy.toString()} min="0" max="100"/></td></tr>*/}
             {/*<tr><td><label htmlFor="handling">Handling</label></td><td><input onChange={handler} name="handling" type="number" value="" min="0" max="100"/></td></tr>*/}
             <tr><td><label htmlFor="reloadTime">Reload Time</label></td><td><input onFocus={selectAll} onChange={handler} name="reloadTime" type="number" value={form.reloadTime.toString()} min="0" step="0.1"/></td></tr>
             <tr><td><label htmlFor="fireRate">Fire Rate</label></td><td><input onFocus={selectAll} onChange={handler} name="fireRate" type="number" value={form.fireRate.toString()} min="0" step="0.01"/></td></tr>
-            <tr><td><label htmlFor="magazineSize">Magazine Size</label></td><td><input onFocus={selectAll} onChange={handler} name="magazineSize" type="number" value={form.magazineSize.toString()} min="0"/></td></tr>
+            <tr><td><label htmlFor="magazineSize">Magazine Size</label></td>
+              <td><input onFocus={selectAll} onChange={handler} name="magazineSize" type="number" value={form.magazineSize.toString()} min="0"/>
+              <select onChange={handler} name="bulletsPerShot" id="bulletsPerShot" title="Bullets per shot" value={form.bulletsPerShot}>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="bulletsPerShot">Bullets per shot</label>
+              </td></tr>
           </tbody>
         </table>
       </form>
