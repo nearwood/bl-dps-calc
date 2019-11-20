@@ -5,6 +5,8 @@ import "react-tabs/style/react-tabs.css";
 
 const VERSION = process.env.REACT_APP_GIT_COMMIT_HASH || 'dev';
 
+const rxNumberSeparator = /[0-9]+[.,][0-9]+/;
+
 function App() {
   const [formA, setFormA] = useState({damage: "17", accuracy: "60", reloadTime: "4.0", fireRate: "13.67", magazineSize: "60"});
   const [formB, setFormB] = useState({damage: "20", accuracy: "80", reloadTime: "3.2", fireRate: "12.71", magazineSize: "44"});
@@ -28,7 +30,7 @@ function App() {
     let data = {};
   
     Object.keys(form).forEach(key => 
-      data[key] = form[key].includes('.') ? Number.parseFloat(form[key]) : Number.parseInt(form[key], 10)
+      data[key] = form[key].match(rxNumberSeparator) ? Number.parseFloat(form[key]) : Number.parseInt(form[key], 10)
     );
     return data;
   };
