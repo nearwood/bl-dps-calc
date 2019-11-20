@@ -24,8 +24,12 @@ table {
 }
 
 div input {
-  width: 8em;
-  height: 2em;
+  width: 4em;
+  height: 1em;
+}
+
+input.shrink {
+  width: 3em;
 }
 
 label {
