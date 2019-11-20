@@ -105,7 +105,7 @@ function App() {
           <tr><td>Base DPS:</td><td>{dps}</td>{gunA && percentDelta(gunA.dps, gun.dps)}</tr>
           {gunA && <tr><td>Fire Rate:</td><td>{(gun.fireRate - gunA.fireRate).toFixed(2)}</td>{percentDelta(gunA.fireRate, gun.fireRate)}</tr>}
           {gunA && <tr><td>Reload time:</td><td>{(gun.reloadTime - gunA.reloadTime).toFixed(2)}</td>{percentDelta(gunA.reloadTime, gun.reloadTime, true)}</tr>}
-          {gunA && <tr><td>Magazine Size:</td><td>{(gun.magazineSize - gunA.magazineSize).toFixed(2)}</td>{percentDelta(gunA.magazineSize, gun.magazineSize)}</tr>}
+          {gunA && <tr><td>Magazine Size:</td><td>{(gun.magazineSize - gunA.magazineSize).toFixed(0)}</td>{percentDelta(gunA.magazineSize, gun.magazineSize)}</tr>}
         </tbody>
       </table>
     );
