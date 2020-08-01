@@ -1,16 +1,16 @@
 {
   "name": "bl-dps-calc",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "private": true,
   "homepage": "https://nearwood.github.io/bl-dps-calc",
   "dependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.2.0",
-    "react-tabs": "^3.0.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "react-tabs": "^3.1.1"
   },
   "devDependencies": {
-    "gh-pages": "^2.1.1"
+    "gh-pages": "^3.1.0"
   },
   "scripts": {
     "predeploy": "REACT_APP_GIT_COMMIT_HASH=\"$(git rev-parse HEAD)\" yarn run build",
