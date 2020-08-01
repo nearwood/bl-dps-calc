@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/bl-dps-calc/static/css/main.3fa5ca8b.chunk.css",
-    "main.js": "/bl-dps-calc/static/js/main.be61628d.chunk.js",
-    "main.js.map": "/bl-dps-calc/static/js/main.be61628d.chunk.js.map",
-    "runtime-main.js": "/bl-dps-calc/static/js/runtime-main.55599991.js",
-    "runtime-main.js.map": "/bl-dps-calc/static/js/runtime-main.55599991.js.map",
-    "static/css/2.5c17b9f1.chunk.css": "/bl-dps-calc/static/css/2.5c17b9f1.chunk.css",
-    "static/js/2.054cb20c.chunk.js": "/bl-dps-calc/static/js/2.054cb20c.chunk.js",
-    "static/js/2.054cb20c.chunk.js.map": "/bl-dps-calc/static/js/2.054cb20c.chunk.js.map",
+    "main.css": "/bl-dps-calc/static/css/main.fe2a976c.chunk.css",
+    "main.js": "/bl-dps-calc/static/js/main.242d111c.chunk.js",
+    "main.js.map": "/bl-dps-calc/static/js/main.242d111c.chunk.js.map",
+    "runtime-main.js": "/bl-dps-calc/static/js/runtime-main.bba1a297.js",
+    "runtime-main.js.map": "/bl-dps-calc/static/js/runtime-main.bba1a297.js.map",
+    "static/css/2.3f0e29b7.chunk.css": "/bl-dps-calc/static/css/2.3f0e29b7.chunk.css",
+    "static/js/2.9981c828.chunk.js": "/bl-dps-calc/static/js/2.9981c828.chunk.js",
+    "static/js/2.9981c828.chunk.js.map": "/bl-dps-calc/static/js/2.9981c828.chunk.js.map",
     "index.html": "/bl-dps-calc/index.html",
-    "precache-manifest.7a25f2225741904ff31c5dfc9b52aa21.js": "/bl-dps-calc/precache-manifest.7a25f2225741904ff31c5dfc9b52aa21.js",
+    "precache-manifest.2ce921893531dee12c21206ce308176e.js": "/bl-dps-calc/precache-manifest.2ce921893531dee12c21206ce308176e.js",
     "service-worker.js": "/bl-dps-calc/service-worker.js",
-    "static/css/2.5c17b9f1.chunk.css.map": "/bl-dps-calc/static/css/2.5c17b9f1.chunk.css.map",
-    "static/css/main.3fa5ca8b.chunk.css.map": "/bl-dps-calc/static/css/main.3fa5ca8b.chunk.css.map"
+    "static/css/2.3f0e29b7.chunk.css.map": "/bl-dps-calc/static/css/2.3f0e29b7.chunk.css.map",
+    "static/css/main.fe2a976c.chunk.css.map": "/bl-dps-calc/static/css/main.fe2a976c.chunk.css.map",
+    "static/js/2.9981c828.chunk.js.LICENSE.txt": "/bl-dps-calc/static/js/2.9981c828.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.55599991.js",
-    "static/css/2.5c17b9f1.chunk.css",
-    "static/js/2.054cb20c.chunk.js",
-    "static/css/main.3fa5ca8b.chunk.css",
-    "static/js/main.be61628d.chunk.js"
+    "static/js/runtime-main.bba1a297.js",
+    "static/css/2.3f0e29b7.chunk.css",
+    "static/js/2.9981c828.chunk.js",
+    "static/css/main.fe2a976c.chunk.css",
+    "static/js/main.242d111c.chunk.js"
   ]
 }
