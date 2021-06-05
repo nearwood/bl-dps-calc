@@ -1,6 +1,6 @@
 {
   "name": "bl-dps-calc",
-  "version": "1.2.2",
+  "version": "1.2.4",
   "private": true,
   "homepage": "https://nearwood.github.io/bl-dps-calc",
   "dependencies": {
