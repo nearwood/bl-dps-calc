@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/bl-dps-calc/static/css/main.95bea471.chunk.css",
-    "main.js": "/bl-dps-calc/static/js/main.9213c18b.chunk.js",
-    "main.js.map": "/bl-dps-calc/static/js/main.9213c18b.chunk.js.map",
+    "main.js": "/bl-dps-calc/static/js/main.05c44c1c.chunk.js",
+    "main.js.map": "/bl-dps-calc/static/js/main.05c44c1c.chunk.js.map",
     "runtime-main.js": "/bl-dps-calc/static/js/runtime-main.8809ec95.js",
     "runtime-main.js.map": "/bl-dps-calc/static/js/runtime-main.8809ec95.js.map",
     "static/css/2.27175f2b.chunk.css": "/bl-dps-calc/static/css/2.27175f2b.chunk.css",
@@ -18,6 +18,6 @@
     "static/css/2.27175f2b.chunk.css",
     "static/js/2.246c5b05.chunk.js",
     "static/css/main.95bea471.chunk.css",
-    "static/js/main.9213c18b.chunk.js"
+    "static/js/main.05c44c1c.chunk.js"
   ]
 }
