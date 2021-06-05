@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/bl-dps-calc/static/css/main.5daed2f4.chunk.css",
-    "main.js": "/bl-dps-calc/static/js/main.e974d802.chunk.js",
-    "main.js.map": "/bl-dps-calc/static/js/main.e974d802.chunk.js.map",
+    "main.css": "/bl-dps-calc/static/css/main.95bea471.chunk.css",
+    "main.js": "/bl-dps-calc/static/js/main.9213c18b.chunk.js",
+    "main.js.map": "/bl-dps-calc/static/js/main.9213c18b.chunk.js.map",
     "runtime-main.js": "/bl-dps-calc/static/js/runtime-main.8809ec95.js",
     "runtime-main.js.map": "/bl-dps-calc/static/js/runtime-main.8809ec95.js.map",
     "static/css/2.27175f2b.chunk.css": "/bl-dps-calc/static/css/2.27175f2b.chunk.css",
@@ -10,14 +10,14 @@
     "static/js/2.246c5b05.chunk.js.map": "/bl-dps-calc/static/js/2.246c5b05.chunk.js.map",
     "index.html": "/bl-dps-calc/index.html",
     "static/css/2.27175f2b.chunk.css.map": "/bl-dps-calc/static/css/2.27175f2b.chunk.css.map",
-    "static/css/main.5daed2f4.chunk.css.map": "/bl-dps-calc/static/css/main.5daed2f4.chunk.css.map",
+    "static/css/main.95bea471.chunk.css.map": "/bl-dps-calc/static/css/main.95bea471.chunk.css.map",
     "static/js/2.246c5b05.chunk.js.LICENSE.txt": "/bl-dps-calc/static/js/2.246c5b05.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8809ec95.js",
     "static/css/2.27175f2b.chunk.css",
     "static/js/2.246c5b05.chunk.js",
-    "static/css/main.5daed2f4.chunk.css",
-    "static/js/main.e974d802.chunk.js"
+    "static/css/main.95bea471.chunk.css",
+    "static/js/main.9213c18b.chunk.js"
   ]
 }
